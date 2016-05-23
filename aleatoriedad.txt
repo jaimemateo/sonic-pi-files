@@ -1,0 +1,59 @@
+### ALEATORIEDAD ###
+
+# Semilla para generar ese número aleatorio
+use_random_seed 5
+
+sec1 = [60,64,65,60,64,65,64]
+
+puts dice 120
+
+# Choose siempre elige un valor aleatorio
+puts sec1.choose
+
+# Primer random devuelve decimales
+puts rand(6)
+# Devuelve sin decimales
+puts rand_i(6)
+# Devuelve sin decimales
+puts rrand(6,8)
+puts rrand_i(5,50)
+
+4.times do
+  use_synth :dsaw
+  play rrand(40,90), amp: rand(1), cutoff: rrand(20,120)
+  sleep 0.2
+end
+
+# Devuelve entero
+play dice 120
+
+# True / False
+# Iannis Xenakis lo empezó a utilizar
+20.times do
+  # Uno de cada dos sale verdadero. Única función que puede controlar la aleatoriedad
+  if one_in(4)
+    puts "1"
+  else
+    puts "0"
+  end
+end
+
+# John Cage
+
+# Iannis Xenakis, compositor más cercano al Computer Music
+stop
+use_random_seed 2001
+
+use_synth :piano
+
+live_loop :stochastic do
+  # Jugamos con el rand y lo bajamos caa vez más. Si subimos el número de notas y 
+  # la aleaotoriedad al final dibuje patrones / probabilidad
+  play rrand_i(40,120),amp: 1
+  #play rrand_i(40,80),amp: 1
+  #play rrand_i(20,150),amp: 1
+  sleep rand(2)
+  #sleep rand(1)
+  #sleep rand(0.1)
+  #sleep rand(0.05)
+end

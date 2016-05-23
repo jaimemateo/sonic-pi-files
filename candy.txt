@@ -1,0 +1,124 @@
+define :candy do
+  use_synth :tb303
+  play 60, amp: 0.5, release: 1.5
+  sleep 0.25
+  play 64, amp: 0.5, release: 1.5
+  sleep 0.125
+  play 65, amp: 0.5, release: 1.5
+  sleep 0.125
+  play 60, amp: 0.5, release: 1.5
+  sleep 0.25
+  play 64, amp: 0.5, release: 1.5
+  sleep 0.125
+  play 65, amp: 0.5, release: 1.5
+  sleep 0.125
+  play 64, amp: 0.5, release: 1.5
+  sleep 0.25
+end
+
+define :candy2 do
+  use_synth :tb303
+  play 60, amp: 0.5, release: 1
+  sleep 0.125
+  play 64, amp: 0.5, release: 1
+  sleep 0.25
+  play 65, amp: 0.5, release: 1
+  sleep 0.25
+  play 67, amp: 0.5, release: 1
+  sleep 0.125
+end
+
+define :dark_beat2 do
+  sample :bass_woodsy_c
+  play 41, amp: 5, finish: 0.5, release: 2
+  sleep 1
+end
+
+define :dark_beat1 do
+  sample :bass_woodsy_c
+  play 48, amp: 5, finish: 0.5, release: 3
+  sleep 2
+end
+
+define :back_beat do
+  use_synth :tb303
+  sleep 0.125
+  play 60, amp: 0.1, release: 0.2, pan:-1
+  sleep 0.125
+  play 64, amp: 0.2, release: 0.2, pan: 1
+  sleep 0.125
+  play 65, amp: 0.3, release: 0.2, pan:-1
+end
+
+define :drum_start do
+  sample :drum_tom_mid_soft, amp: 1
+  sleep 0.250
+  sample :drum_tom_mid_soft, amp: 2
+  sleep 0.125
+  sample :drum_tom_mid_soft, amp: 2
+  sleep 0.125
+  sample :drum_tom_mid_soft, amp: 3
+  sleep 0.250
+end
+
+define :soon do
+  use_synth :blade
+  play 64, amp: 1, release: 1
+  sleep 0.25
+  play 67, amp: 1, release: 1
+  sleep 0.125
+  play 64, amp: 1, release: 1
+  sleep 0.125
+  play 69, amp: 1, release: 1
+  sleep 0.25
+  play 69, amp: 1, release: 1
+  sleep 0.25
+  play 64, amp: 1, release: 1
+  sleep 0.25
+  play 64, amp: 1, release: 1
+  sleep 0.125
+  play 67, amp: 1, release: 1
+  sleep 0.125
+  play 64, amp: 1, release: 1
+  sleep 0.125
+  play 69, amp: 1, release: 1
+  sleep 0.25
+  play 69, amp: 1, release: 1
+  sleep 0.25
+end
+
+live_loop :intro do
+  sample :loop_compus, beat_stretch: 4, amp: 0.5, release: 2
+  sleep 1
+end
+
+
+
+live_loop :soon do
+  back_beat
+  sleep 2
+end
+
+
+live_loop :candy do
+  #sleep 1
+  #candy
+  #candy
+  #candy
+  #candy2
+  #candy2
+  soon
+end
+
+live_loop :dark_beat1  do
+  sleep 1
+  #dark_beat1
+  #dark_beat2
+end
+
+live_loop :industry do
+  sample :loop_industrial, beat_stretch: 1
+  sleep 1
+end
+
+# Loading previous buffer contents. Please wait...
